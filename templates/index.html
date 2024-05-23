@@ -7,14 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Example</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div class="card">
         <h2>Acess By KAI</h2>
-        <textarea placeholder="Masukkan teks di sini"></textarea>
-        <button>Start</button>
+        <div class="my-2">
+            <form id="predict">
+                <textarea id="comment" placeholder="Masukkan teks di sini"></textarea>
+                <button type="submit">Start</button>
+            </form>
+        </div>
+        <h1>Rating :</h1>
+        <h1 id="rating" class="text-3xl">
+        
+        </h1>
     </div>
 </body>
+<script>
+    document.getElementById('predict').addEventListener('submit', function(e) {
+        e.preventDefault();''
+        let comment = document.getElementById('comment').value;
+      
+        if(comment.length===0){
+            alert('Masukkan teks terlebih dahulu');
+            return;
+        };
+
+        let requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({comment: comment})
+        };
+
+        fetch('http://127.0.0.1:5000/predict', requestOptions)
+       .then(response => response.json())
+       .then(data => {
+        document.getElementById('rating').innerHTML = data.prediction
+       })
+       .catch(error=>{})
+    });
+</script>
 </html>
 
 
