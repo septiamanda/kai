@@ -6,27 +6,4 @@ myenv/
 .env
 
 # IDE/Editor specific files
-.vscode/
-.idea/
 
-# Compiled Python files
-__pycache__/
-
-# Logs and databases
-*.log
-*.sqlite3
-
-# Local configuration files
-instance/
-
-# Generated files
-*.pyc
-*.pyo
-*.pyd
-*.class
-*.o
-*.so
-*.dll
-*.exe
-*.out
-*.log
