@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Kepuasan Pelanggan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header class="fixed top-0 bg-white w-full flex items-center h-16 shadow justify-between px-20 ">
+        <h2 class="font-bold text-3xl">Analisis Kepuasan Pelanggan Aplikasi KAI</h2>
+        <nav class="">
+            <ul class= space-y-10">
+               
+                <span><a class="text-sky-800 font-semibold" href="/comment">Comment</a></span>
+            </ul>
+        </nav>
+    </header>
+    <div class="card">
+        <h2>Acess By KAI</h2>
+        <div class="my-2">
+            <h1 class="py-6">Analisis Kepuasan Pelanggan Aplikasi KAI</h1>
+            <form action="/predict_scrape" method="post">
+                <button type="submit" >analisa</button>
+            </form>
+            {% if masalah %}
+            <h3>Permasalahan yang Paling Dominan: {{ masalah }}</h3>
+            <span>Jumlah: {{ jumlah }}</span>
+            {% elif error %}
+            <span>{{ error }}</span>
+            {% endif %}
+        </div>
+
+
+        </h1>
+    </div>
+</body>
+
+</html>
