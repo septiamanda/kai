@@ -8,3 +8,5 @@ myenv/
 # IDE/Editor specific files
 
     
+.vercel
+node_modules/
